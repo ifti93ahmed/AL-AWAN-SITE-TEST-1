@@ -853,11 +853,31 @@
     <h2>Find Parts by <span>VIN Number</span></h2>
     <p>Enter your Vehicle Identification Number for an exact parts match — no guesswork, guaranteed compatibility.</p>
     <div class="vin-form">
-      <input class="vin-input" type="text" placeholder="Enter VIN (e.g. VF3VEAHX7RZ000414)" maxlength="17">
-      <button class="vin-btn">Search Parts</button>
+      <input class="vin-input" id="vinInput" type="text" placeholder="Enter VIN (e.g. VF3VEAHX7RZ000414)" maxlength="17">
+      <button class="vin-btn" onclick="sendVinToWhatsApp()">Search Parts</button>
     </div>
   </div>
 </section>
+
+<script>
+function sendVinToWhatsApp() {
+  const vin = document.getElementById('vinInput').value.trim();
+
+  if (!vin) {
+    alert('Please enter a VIN number');
+    return;
+  }
+
+  if (vin.length !== 17) {
+    alert('VIN must be exactly 17 characters');
+    return;
+  }
+
+  const phone = '971507678812'; // Replace with your number
+  const message = encodeURIComponent(`VIN Parts Search Request: ${vin}`);
+  window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
+</script>
 
 <!-- FEATURED PRODUCTS -->
 <section class="section" style="background: var(--light);">
