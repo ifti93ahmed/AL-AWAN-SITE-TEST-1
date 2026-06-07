@@ -717,8 +717,22 @@
           <option>Oils & Fluids</option>
           <option>Tyres & Wheels</option>
         </select>
-        <input class="search-input" type="text" placeholder="Search by part name, OEM number, or brand...">
-        <button class="search-btn">🔍</button>
+        <input class="search-input" id="query" type="text" placeholder="Search by part name, OEM number, or brand...">
+        <button class="search-btn" onclick="sendToWhatsApp2()">🔍</button>
+        <script>
+        function sendToWhatsApp2() {
+        const query = document.getElementById('query').value.trim();
+  
+        if (!query) {
+        alert('Please enter the name of the spare part or the car you need the item for');
+        return;
+  }
+
+  const phone = '971507678812'; // country code + number, no + or spaces
+  const message = encodeURIComponent(`Requirement: ${query}`);
+  window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
+</script>
       </div>
     </div>
 
