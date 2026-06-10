@@ -229,11 +229,33 @@
 
   /* ── HERO BANNER ── */
   .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 60%, #1a3a6b 100%);
-    position: relative;
-    overflow: hidden;
-    padding: 60px 20px;
-  }
+  background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 60%, #1a3a6b 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 60px 20px;
+}
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease;
+  opacity: 0.18;
+}
+.hero-slide-label {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  background: rgba(0,0,0,.5);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+}
   .hero::before {
     content: '';
     position: absolute;
@@ -774,7 +796,10 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hero-section">
+  <div class="hero-slideshow" id="heroSlide"></div>
+  <div class="hero-slide-label" id="heroLabel">Engine &amp; Drivetrain</div>
+  
   <div class="hero-inner">
     <div class="hero-text">
       <h1>Peugeot, Renault, Citroen Genuine <span> <br>قطع غيار جديدة | بيجو  ,ستروين, رينو <br></span> &<br><span>Aftermarket</span><br>Car Parts</h1>
