@@ -1180,6 +1180,23 @@ function sendVinToWhatsApp() {
     </div>
   </div>
 </footer>
-
+<script>
+  const slides = [
+    { img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1600&q=80", label: "Engine & Drivetrain" },
+    { img: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80", label: "Performance Brakes" },
+    { img: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1600&q=80", label: "Workshop Grade Tools" },
+    { img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80", label: "Premium Auto Parts" },
+  ];
+  let current = 0;
+  const el = document.getElementById('heroSlide');
+  const lbl = document.getElementById('heroLabel');
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    el.style.backgroundImage = `url(${slides[current].img})`;
+    lbl.textContent = slides[current].label;
+  }
+  el.style.backgroundImage = `url(${slides[0].img})`;
+  setInterval(nextSlide, 4000);
+      </script>
 </body>
 </html>
