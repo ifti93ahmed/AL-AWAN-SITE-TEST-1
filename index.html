@@ -838,31 +838,22 @@
   const message = encodeURIComponent(`Requirement: ${query}`);
   window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 }
-       function sendToWhatsapp3(){
-       const card = button.closest('.product-card');
+        </script>
+  <script>      
+  function sendToWhatsapp3(btn) {
+  const card = btn.closest('.product-card');
+  const brand = card.querySelector('.product-brand').innerText.trim();
+  const name  = card.querySelector('.product-name').innerText.trim();
+  const sku   = card.querySelector('.product-sku').innerText.trim();
+  const price = card.querySelector('.product-price').innerText.trim();
+  const badge = card.querySelector('.product-badge');
+  const type  = badge ? badge.innerText.trim() : '';
 
-       const brand = card.querySelector('.product-brand').innerText;
-      const name = card.querySelector('.product-name').innerText;
-      const sku = card.querySelector('.product-sku').innerText;
-      const price = card.querySelector('.product-price').innerText;
+  const message = `Hello Al Awan Auto Parts,\n\nI am interested in :\n\n🔩 *${brand} – ${name}*\n📦 ${sku}\n💰 Price: ${price}${type ? '\n🏷 Type: ' + type : ''}\n\nPlease confirm availability.`;
 
-      const message =
-`Hello,
-
-I would like to order:
-
-Brand: ${brand}
-Product: ${name}
-${sku}
-Price: ${price}`;
-
-    const phone = "971507678812"; // Your WhatsApp number
-
-    window.open(
-        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-        '_blank'
-    );
-          }
+  const phone = '971507678812';
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+}
 </script>
         
       </div>
